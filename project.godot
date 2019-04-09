@@ -12,64 +12,58 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Action",
 "language": "GDScript",
-"path": "res://Action.gd"
+"path": "res://TestBuild/Action.gd"
 }, {
 "base": "Area2D",
 "class": "Actor",
 "language": "GDScript",
-"path": "res://Actor.gd"
+"path": "res://TestBuild/Actor.gd"
 }, {
 "base": "Enemy",
 "class": "BasicEnemy",
 "language": "GDScript",
-"path": "res://BasicEnemy.gd"
+"path": "res://TestBuild/BasicEnemy.gd"
 }, {
 "base": "Tower",
 "class": "BasicTower",
 "language": "GDScript",
-"path": "res://BasicTower.gd"
-}, {
-"base": "Area2D",
-"class": "DetectionField",
-"language": "GDScript",
-"path": "res://DetectionField.gd"
+"path": "res://TestBuild/BasicTower.gd"
 }, {
 "base": "MovingActor",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://Enemy.gd"
+"path": "res://TestBuild/Enemy.gd"
 }, {
 "base": "Actor",
 "class": "MovingActor",
 "language": "GDScript",
-"path": "res://MovingActor.gd"
+"path": "res://TestBuild/MovingActor.gd"
 }, {
 "base": "Tower",
 "class": "PlayerBase",
 "language": "GDScript",
-"path": "res://PlayerBase.gd"
+"path": "res://TestBuild/PlayerBase.gd"
 }, {
 "base": "Area2D",
 "class": "Tile",
 "language": "GDScript",
-"path": "res://Tile.gd"
+"path": "res://TestBuild/Tile.gd"
 }, {
 "base": "Node2D",
 "class": "TileGrid",
 "language": "GDScript",
-"path": "res://TileGrid.gd"
+"path": "res://TestBuild/TileGrid.gd"
 }, {
 "base": "Actor",
 "class": "Tower",
 "language": "GDScript",
-"path": "res://Tower.gd"
+"path": "res://TestBuild/Tower.gd"
 } ]
 _global_script_class_icons={
 "Action": "",
 "Actor": "",
 "BasicEnemy": "",
 "BasicTower": "",
-"DetectionField": "",
 "Enemy": "",
 "MovingActor": "",
 "PlayerBase": "",
@@ -81,13 +75,19 @@ _global_script_class_icons={
 [application]
 
 config/name="CS4700 Final Project"
-run/main_scene="res://Main.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://scenes/TestWorld.tscn"
+config/icon="res://TestBuild/icon.png"
 
 [autoload]
 
-Globals="*res://Globals.gd"
-Game="*res://Game.gd"
+Globals="*res://TestBuild/Globals.gd"
+Game="*res://TestBuild/Game.gd"
+global="*res://globals/global.gd"
+image="*res://globals/image.gd"
+audio="*res://globals/audio.gd"
+enemy="*res://globals/enemy.gd"
+world="*res://globals/world.gd"
+abstract="*res://globals/abstract.gd"
 
 [debug]
 
@@ -95,4 +95,4 @@ settings/fps/force_fps=60
 
 [rendering]
 
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://TestBuild/default_env.tres"
