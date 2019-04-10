@@ -17,6 +17,7 @@ var attackRange
 func _init().(HIEGHT, WIDTH, SPRITE):
 	self.position = Vector2(200, 200)
 	attackRange = DetectionField.new(150)
+	add_child(attackRange)
 	walkSpeed = .3
 	
 
