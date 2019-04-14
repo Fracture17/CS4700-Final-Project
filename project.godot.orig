@@ -44,11 +44,14 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://TestBuild/DetectionField.gd"
 }, {
+<<<<<<< HEAD
+=======
 "base": "Node2D",
 "class": "DirectHitBox",
 "language": "GDScript",
 "path": "res://DirectHitBox.gd"
 }, {
+>>>>>>> 5d4240c165ce61be74173c476f84a7a57e3fd72c
 "base": "MovingActor",
 "class": "Enemy",
 "language": "GDScript",
@@ -132,7 +135,10 @@ _global_script_class_icons={
 "BasicEnemy": "",
 "BasicTower": "",
 "DetectionField": "",
+<<<<<<< HEAD
+=======
 "DirectHitBox": "",
+>>>>>>> 5d4240c165ce61be74173c476f84a7a57e3fd72c
 "Enemy": "",
 "HitBox": "",
 "MovingActor": "",
