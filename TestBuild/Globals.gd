@@ -6,6 +6,7 @@ extends Node2D
 
 #class_name Globals
 
+var tileSprites = ['res://TestBuild/TileSprites/0-1-0.png', 'res://TestBuild/TileSprites/0-0-35.png']
 #Helper functions for creating new nodes
 static func newCircleCollision(radius):
 	var collision = CollisionShape2D.new()
@@ -63,11 +64,6 @@ static func filterNodesInGroups(nodes: Array, groups: Array) -> Array:
 		if len(arrayIntersection(node.get_groups, groups)) > 0:
 			result.append(node)
 	return result
-
-
-
-
-
 
 static func arrayIntersection(array1, array2):
 	var intersection = []

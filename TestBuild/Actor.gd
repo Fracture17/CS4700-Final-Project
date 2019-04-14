@@ -31,6 +31,9 @@ func _init(height, width, spritePath = ''):
 	if spritePath != '':
 		var sprite = Globals.newSprite(height, width, spritePath)
 		add_child(sprite)
+	else:
+		var sprite = Globals.newSprite(height, width, "res://assets/images/TILESET_TEST/0-0-1.png")
+		add_child(sprite)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

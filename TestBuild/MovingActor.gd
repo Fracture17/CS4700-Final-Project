@@ -9,8 +9,7 @@ func _init(height, width, spritePath = '').(height, width, spritePath):
 
 func _ready():
 	pass
-
-
+	
 #moves towards destination using walkspeed.  Returns true if reached
 func moveTowards(destination):
 	var velocity = Game.navigate(self, destination, walkSpeed)

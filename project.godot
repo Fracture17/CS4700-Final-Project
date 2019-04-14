@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://TestBuild/BasicTower.gd"
 }, {
+"base": "Area2D",
+"class": "DetectionField",
+"language": "GDScript",
+"path": "res://TestBuild/DetectionField.gd"
+}, {
 "base": "MovingActor",
 "class": "Enemy",
 "language": "GDScript",
@@ -47,29 +52,66 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "Tile",
 "language": "GDScript",
-"path": "res://TestBuild/Tile.gd"
+"path": "res://objects/tiles/Tile.gd"
+}, {
+"base": "TilePathable",
+"class": "TileFloor",
+"language": "GDScript",
+"path": "res://objects/tiles/TileFloor.gd"
 }, {
 "base": "Node2D",
 "class": "TileGrid",
 "language": "GDScript",
-"path": "res://TestBuild/TileGrid.gd"
+"path": "res://objects/tiles/TileGrid.gd"
+}, {
+"base": "Tile",
+"class": "TilePathable",
+"language": "GDScript",
+"path": "res://objects/tiles/TilePathable.gd"
+}, {
+"base": "Tile",
+"class": "TileUnpathable",
+"language": "GDScript",
+"path": "res://objects/tiles/TileUnpathable.gd"
+}, {
+"base": "TileUnpathable",
+"class": "TileWall",
+"language": "GDScript",
+"path": "res://objects/tiles/TileWall.gd"
+}, {
+"base": "TileUnpathable",
+"class": "TileWater",
+"language": "GDScript",
+"path": "res://objects/tiles/TileWater.gd"
 }, {
 "base": "Actor",
 "class": "Tower",
 "language": "GDScript",
 "path": "res://TestBuild/Tower.gd"
+}, {
+"base": "Node",
+"class": "abstract",
+"language": "GDScript",
+"path": "res://globals/abstract.gd"
 } ]
 _global_script_class_icons={
 "Action": "",
 "Actor": "",
 "BasicEnemy": "",
 "BasicTower": "",
+"DetectionField": "",
 "Enemy": "",
 "MovingActor": "",
 "PlayerBase": "",
 "Tile": "",
+"TileFloor": "",
 "TileGrid": "",
-"Tower": ""
+"TilePathable": "",
+"TileUnpathable": "",
+"TileWall": "",
+"TileWater": "",
+"Tower": "",
+"abstract": ""
 }
 
 [application]
@@ -80,14 +122,13 @@ config/icon="res://TestBuild/icon.png"
 
 [autoload]
 
-Globals="*res://TestBuild/Globals.gd"
-Game="*res://TestBuild/Game.gd"
-global="*res://globals/global.gd"
 image="*res://globals/image.gd"
+Globals="*res://TestBuild/Globals.gd"
+global="*res://globals/global.gd"
 audio="*res://globals/audio.gd"
 enemy="*res://globals/enemy.gd"
-world="*res://globals/world.gd"
 abstract="*res://globals/abstract.gd"
+Game="*res://TestBuild/Game.gd"
 
 [debug]
 
