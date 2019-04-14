@@ -7,7 +7,8 @@ const WIDTH = 50
 const SPRITE = 'res://TestBuild/icon.png'
 
 func _init().(HIEGHT, WIDTH, SPRITE):
-	pass
+	self.position = Vector2(400, 400)
+	health = 50
 
 func _ready():
 	add_to_group('base')

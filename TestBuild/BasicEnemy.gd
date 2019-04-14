@@ -14,23 +14,33 @@ const SPRITE = 'res://TestBuild/icon.png'
 var attack
 var attackRange
 
-func _init().(HIEGHT, WIDTH, SPRITE):
-	self.position = Vector2(200, 200)
-	attackRange = DetectionField.new(150)
-	walkSpeed = .3
-	
+var testHitBox = AreaHitBox.new(200, 1, 0, Vector2(0,0), false, 0, 100, ['playerBase'])
+var testHitBox2 = DirectHitBox.new(1, 0, 20)
+var testHitBox3 = RangedHitBox.new(5, 2, 0, 10, false, true, 0, 200, ['playerBase'])
+
+func _init(position).(HIEGHT, WIDTH, SPRITE):
+	self.position = position
+	attackRange = DetectionField.new(50)
+	add_child(attackRange)
+	attack = Attack.new(testHitBox3, 100, 100)
+	add_child(attack)
+	walkSpeed = 1
+	health = 20
 
 func _ready():
 	pass
 
 func _process(delta: float):
+	if not is_instance_valid(targetActor):
+		targetActor = null
+	
 	#This currently assumes that enemies ignore players unless players aggro them
 	if targetActor == null:
 		targetActor = Game.closestNodeFromGroups(self, ['playerBase'])
 	
-	if attackRange.nodeInRange(targetActor):
-		if not attack.active:
-			attack.start(targetActor)
-	else:
-		moveTowards(targetActor.position)
-		
+	if targetActor:
+		if attackRange.nodeInRange(targetActor):
+			if not isAttacking and attack.usable:
+				attack.start(self, targetActor)
+		else:
+			moveTowards(targetActor.position)

@@ -8,10 +8,9 @@ class_name Actor
 
 var targetActor: Actor
 var health: float
-var tags: Array
 var stats
-var statuses: Array
-var speed: Vector2
+var statuses: Array = []
+var isAttacking: bool = false
 
 func replaceSprite(spritePath):
 	var collision = get_node('collision')
@@ -39,8 +38,8 @@ func _init(height, width, spritePath = ''):
 func _ready() -> void:
 	pass # Replace with function body.
 	
-func onHit(attack):
-	health -= attack.damage
+func getHit(hitbox):
+	health -= hitbox.damage
 	if health <= 0:
 		die()
 	

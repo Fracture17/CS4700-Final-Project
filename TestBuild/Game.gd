@@ -1,6 +1,6 @@
 extends Node2D
 
-var playerGold
+var playerGold = 0
 var tileGrid
 
 var A = AStar.new()

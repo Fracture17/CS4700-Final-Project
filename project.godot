@@ -19,6 +19,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://TestBuild/Actor.gd"
 }, {
+"base": "DetectionField",
+"class": "AreaHitBox",
+"language": "GDScript",
+"path": "res://AreaHitBox.gd"
+}, {
+"base": "Node2D",
+"class": "Attack",
+"language": "GDScript",
+"path": "res://Attack.gd"
+}, {
 "base": "Enemy",
 "class": "BasicEnemy",
 "language": "GDScript",
@@ -34,10 +44,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://TestBuild/DetectionField.gd"
 }, {
+"base": "Node2D",
+"class": "DirectHitBox",
+"language": "GDScript",
+"path": "res://DirectHitBox.gd"
+}, {
 "base": "MovingActor",
 "class": "Enemy",
 "language": "GDScript",
 "path": "res://TestBuild/Enemy.gd"
+}, {
+"base": "DetectionField",
+"class": "HitBox",
+"language": "GDScript",
+"path": "res://HitBox.gd"
 }, {
 "base": "Actor",
 "class": "MovingActor",
@@ -48,6 +68,16 @@ _global_script_classes=[ {
 "class": "PlayerBase",
 "language": "GDScript",
 "path": "res://TestBuild/PlayerBase.gd"
+}, {
+"base": "DetectionField",
+"class": "RangedHitBox",
+"language": "GDScript",
+"path": "res://RangedHitBox.gd"
+}, {
+"base": "Node2D",
+"class": "Spawner",
+"language": "GDScript",
+"path": "res://Spawner.gd"
 }, {
 "base": "Area2D",
 "class": "Tile",
@@ -97,12 +127,18 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Action": "",
 "Actor": "",
+"AreaHitBox": "",
+"Attack": "",
 "BasicEnemy": "",
 "BasicTower": "",
 "DetectionField": "",
+"DirectHitBox": "",
 "Enemy": "",
+"HitBox": "",
 "MovingActor": "",
 "PlayerBase": "",
+"RangedHitBox": "",
+"Spawner": "",
 "Tile": "",
 "TileFloor": "",
 "TileGrid": "",
@@ -123,9 +159,9 @@ config/icon="res://TestBuild/icon.png"
 [autoload]
 
 image="*res://globals/image.gd"
+audio="*res://globals/audio.gd"
 Globals="*res://TestBuild/Globals.gd"
 global="*res://globals/global.gd"
-audio="*res://globals/audio.gd"
 enemy="*res://globals/enemy.gd"
 abstract="*res://globals/abstract.gd"
 Game="*res://TestBuild/Game.gd"

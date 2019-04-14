@@ -2,7 +2,7 @@ extends MovingActor
 
 class_name Enemy
 
-var gold
+var gold = 1
 
 
 
@@ -14,7 +14,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func die():
-	Game.gold += gold
+	Game.playerGold += gold
 	.die()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

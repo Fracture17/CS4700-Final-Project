@@ -46,10 +46,8 @@ static func newLight(radius, texture = 'res://TestBuild/rangeLight.png'):
 	var light = Light2D.new()
 	light.name = 'light'
 	light.texture = load(texture)
-	light.scale = calcSpriteScale(light, radius, radius)
+	light.scale = calcSpriteScale(light, radius * 2, radius * 2)
 	return light
-
-
 
 
 func getAllNodesInGroups(groups: Array) -> Array:
