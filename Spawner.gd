@@ -3,22 +3,25 @@ extends Node2D
 class_name Spawner
 
 var rate
-var frameCounter = 0
+var time
 
-func _init(rate, position):
-	self.rate = rate
-	self.position = position
-
+func _init():
+	rate = 2 # once per two seconds
+	time = rate
+	var sprite = Globals.newSprite(40, 40, "res://TestBuild/icon.png")
+	sprite.modulate = Color(2, 0, 0)
+	add_child(sprite)
+	
 func _ready():
 	pass
 	
 func _process(delta):
-	frameCounter += 1
-	if frameCounter >= rate:
+	time -= delta
+	if time <= 0:
 		spawn()
-		frameCounter = 0
+		time = rate
 		
 func spawn():
 	#spawn test enemy for now
-	var E = BasicEnemy.new(position)
+	var E = BasicEnemy.new(self.global_position)
 	Game.add_child(E)

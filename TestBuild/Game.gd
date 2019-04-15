@@ -26,7 +26,7 @@ func getClosestTarget(node, targets):
 	return closestTarget
 	
 func navigate(node, dest, speed = 1.0):
-	var startPos = Globals.vector3(node.position)
+	var startPos = Globals.vector3(node.global_position)
 	var endPos = Globals.vector3(dest)
 	var closestIDStart = A.get_closest_point(startPos)
 	var closestIDEnd = A.get_closest_point(endPos)

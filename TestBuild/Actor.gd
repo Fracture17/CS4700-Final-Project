@@ -6,7 +6,7 @@ extends Area2D
 
 class_name Actor
 
-var targetActor: Actor
+var targetActor
 var health: float
 var stats
 var statuses: Array = []

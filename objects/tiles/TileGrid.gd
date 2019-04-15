@@ -9,15 +9,15 @@ var walls
 var tiles = []
 var wallMap = [[2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 
 [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 
-[2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2], 
+[2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2], 
 [2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 2, 2], 
 [2, 2, 2, 2, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 2, 2], 
 [1, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 0, 1, 1, 0, 2, 2, 2], 
-[1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 2, 2], 
+[1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 5, 0, 5, 2, 2], 
 [1, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 0, 2, 2, 2], 
 [1, 2, 2, 0, 2, 2, 2, 0, 1, 0, 2, 2, 1, 1, 0, 1, 2, 2], 
 [1, 2, 2, 0, 2, 2, 2, 0, 0, 2, 2, 2, 2, 1, 0, 1, 1, 1], 
-[1, 1, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1], 
+[1, 1, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 1, 4, 1, 1, 1], 
 [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]
 
 var ROWS = wallMap.size()
@@ -37,6 +37,14 @@ func _ready():
 				T = TileWall.new(H, W, r, c)
 			elif wallMap[r][c] == 2:
 				T = TileWater.new(H, W, r, c)
+			elif wallMap[r][c] == 3:
+				T = TileSpawner.new(H, W, r, c)
+			elif wallMap[r][c] == 4:
+				T = TileBasePlayer.new(H, W, r, c)
+			elif wallMap[r][c] == 5:
+				T = TileTower.new(H, W, r, c)
+			else:
+				T = TileWall.new(H, W, r, c)
 			add_child(T)
 			row.append(T)
 		tiles.append(row)
@@ -51,19 +59,16 @@ func posIndex(r, c):
 	return COLS * r + c
 
 func addSquareAStar(r, c):
-	var pos = tiles[r][c].position
+	var pos = tiles[r][c].global_position
 	Game.A.add_point(r * COLS + c, Vector3(pos.x, pos.y, 0))
-	if r + 1 < ROWS:
-		if wallMap[r + 1][c] == 0:
+	if (tiles[r][c].pathable == true):
+		if r + 1 < ROWS:
 			Game.A.connect_points(posIndex(r, c), posIndex(r + 1, c))
-	if r - 1 >= 0:
-		if wallMap[r - 1][c] == 0:
+		if r - 1 >= 0:
 			Game.A.connect_points(posIndex(r, c), posIndex(r - 1, c))
-	if c + 1 < COLS:
-		if wallMap[r][c + 1] == 0:
+		if c + 1 < COLS:
 			Game.A.connect_points(posIndex(r, c), posIndex(r, c + 1))
-	if c - 1 >= 0:
-		if wallMap[r][c - 1] == 0:
+		if c - 1 >= 0:
 			Game.A.connect_points(posIndex(r, c), posIndex(r, c - 1))
 		
 func removeSquareAStar(r, c):
@@ -72,8 +77,8 @@ func removeSquareAStar(r, c):
 func initAStar():
 	for r in range(ROWS):
 		for c in range(COLS):
-			if (tiles[r][c].pathable == true):
-				addSquareAStar(r, c)
+			addSquareAStar(r, c)
+	print(Game.A.get_points())
 			
 func setBase(r, c):
 	baseIndex = posIndex(r, c)
@@ -118,6 +123,8 @@ func replace(r, c, t):
 	add_child(tiles[r][c])
 	wallMap[r][c] = t
 	tiles[r][c].updateSprite()
+	if t == 0:
+		addSquareAStar(r, c)
 	updateNeighborsOf(r, c)
 
 func getNeighborsOf(r, c):

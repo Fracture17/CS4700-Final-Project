@@ -24,7 +24,7 @@ func _init(position).(HIEGHT, WIDTH, SPRITE):
 	add_child(attackRange)
 	attack = Attack.new(testHitBox3, 100, 100)
 	add_child(attack)
-	walkSpeed = 1
+	walkSpeed = 2
 	health = 20
 
 func _ready():
@@ -43,4 +43,4 @@ func _process(delta: float):
 			if not isAttacking and attack.usable:
 				attack.start(self, targetActor)
 		else:
-			moveTowards(targetActor.position)
+			moveTowards(targetActor.global_position)

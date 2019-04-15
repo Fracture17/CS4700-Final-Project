@@ -1,13 +1,9 @@
-extends Node
+class_name TileTower extends TileStructure
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _init(H, W, r, c).(H, W, r, c):
+	tileID = 5
+	print("new spawner")
+	struct = BasicTower.new(self.global_position)
+	add_child(struct)
+	struct.global_position = self.global_position
