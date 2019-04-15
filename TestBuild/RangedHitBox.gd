@@ -15,6 +15,7 @@ var dissipateOnHit: bool
 var delay: float
 var duration: float
 var targetGroups: Array
+var a = 5
 
 func _init(radius: float, damage: float, type, speed: float, singleHit: bool,
 				dissipateOnHit: bool, delay: float, duration: float, targetGroups: Array).(radius):

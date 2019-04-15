@@ -11,7 +11,10 @@ func _init():
 
 func closestNodeFromGroups(node, targetGroups):
 	var targets = Globals.getAllNodesInGroups(targetGroups)
-	return getClosestTarget(node, targets)
+	var x = getClosestTarget(node, targets)
+	if x and x.get('a') == 5:
+		print('a')
+	return x
 
 func getClosestTarget(node, targets):
 	var nodePoint = A.get_closest_point(Globals.vector3(node.position))

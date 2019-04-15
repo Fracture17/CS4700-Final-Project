@@ -7,18 +7,27 @@ var H = 50
 var W = 50
 var walls
 var tiles = []
-var wallMap = [[2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 
-[2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 
-[2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2], 
-[2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 2, 2], 
-[2, 2, 2, 2, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 2, 2], 
-[1, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 0, 1, 1, 0, 2, 2, 2], 
-[1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 5, 0, 5, 2, 2], 
-[1, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 0, 2, 2, 2], 
-[1, 2, 2, 0, 2, 2, 2, 0, 1, 0, 2, 2, 1, 1, 0, 1, 2, 2], 
-[1, 2, 2, 0, 2, 2, 2, 0, 0, 2, 2, 2, 2, 1, 0, 1, 1, 1], 
-[1, 1, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 1, 4, 1, 1, 1], 
-[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]
+var wallMap = [
+[2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1], 
+[2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1], 
+[2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 1, 1, 1, 1, 2, 2, 0, 1, 1, 1, 1, 1], 
+[2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 2, 0, 0, 1, 1, 1, 1, 1], 
+[2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1], 
+[1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 0, 0, 1, 2, 1, 1, 1, 1, 1, 1], 
+[1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 2, 2, 2, 2, 1, 1, 1, 1, 1, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1], 
+[1, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 1, 1, 1, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1], 
+[1, 2, 2, 0, 2, 2, 2, 0, 1, 0, 2, 2, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1], 
+[1, 2, 2, 0, 2, 2, 2, 0, 0, 2, 2, 2, 2, 1, 1, 2, 1, 1, 1, 2, 1, 1, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1], 
+[1, 1, 2, 0, 2, 2, 0, 1, 1, 2, 0, 2, 2, 1, 1, 2, 1, 2, 2, 2, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1],
+[1, 1, 2, 0, 2, 1, 1, 1, 1, 1, 1, 0, 2, 2, 1, 2, 2, 2, 2, 2, 1, 1, 1, 1, 2, 2, 1, 0, 1, 1, 1, 1], 
+[1, 1, 2, 0, 2, 0, 1, 1, 1, 0, 0, 2, 2, 1, 0, 5, 0, 5, 0, 1, 1, 1, 1, 2, 2, 2, 1, 0, 1, 1, 1, 1], 
+[1, 2, 2, 0, 2, 2, 2, 0, 2, 2, 2, 2, 1, 1, 0, 2, 2, 2, 0, 1, 2, 1, 1, 1, 2, 2, 1, 0, 1, 2, 2, 2], 
+[1, 2, 2, 0, 2, 2, 2, 0, 1, 0, 2, 2, 1, 1, 0, 1, 2, 5, 0, 1, 2, 1, 1, 1, 2, 2, 1, 0, 1, 2, 2, 2], 
+[1, 2, 2, 0, 2, 2, 2, 0, 0, 2, 2, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2], 
+[1, 1, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 2, 2], 
+[1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 2]]
+
+
 
 var ROWS = wallMap.size()
 var COLS = wallMap[0].size()
@@ -40,6 +49,7 @@ func _ready():
 			elif wallMap[r][c] == 3:
 				T = TileSpawner.new(H, W, r, c)
 			elif wallMap[r][c] == 4:
+				setBase(r, c)
 				T = TileBasePlayer.new(H, W, r, c)
 			elif wallMap[r][c] == 5:
 				T = TileTower.new(H, W, r, c)
@@ -60,7 +70,7 @@ func posIndex(r, c):
 
 func addSquareAStar(r, c):
 	var pos = tiles[r][c].global_position
-	Game.A.add_point(r * COLS + c, Vector3(pos.x, pos.y, 0))
+	Game.A.add_point(r * COLS + c, Vector3(pos.x, pos.y, tiles[r][c].tileID))
 	if (tiles[r][c].pathable == true):
 		if r + 1 < ROWS:
 			Game.A.connect_points(posIndex(r, c), posIndex(r + 1, c))
@@ -78,18 +88,11 @@ func initAStar():
 	for r in range(ROWS):
 		for c in range(COLS):
 			addSquareAStar(r, c)
-	print(Game.A.get_points())
+	#print(Game.A.get_points())
 			
 func setBase(r, c):
 	baseIndex = posIndex(r, c)
-	
-func convertWallMap(map):
-	walls = []
-	for r in range(len(map)):
-		for c in range(len(map[0])):
-			if map[r][c] == 1:
-				walls.append([r, c])
-				
+
 func updateNeighborsOf(r, c):
 	if r-1 >= 0 :
 		if c-1 >= 0:
@@ -120,6 +123,15 @@ func replace(r, c, t):
 		tiles[r][c] = TileWall.new(H, W, r, c)
 	elif t == 2:
 		tiles[r][c] = TileWater.new(H, W, r, c)
+	elif t == 3:
+		tiles[r][c] = TileSpawner.new(H, W, r, c)
+	elif t == 4:
+		setBase(r, c)
+		tiles[r][c] = TileBasePlayer.new(H, W, r, c)
+	elif t == 5:
+		tiles[r][c] = TileTower.new(H, W, r, c)
+	else:
+		tiles[r][c] = TileWall.new(H, W, r, c)
 	add_child(tiles[r][c])
 	wallMap[r][c] = t
 	tiles[r][c].updateSprite()
@@ -128,7 +140,7 @@ func replace(r, c, t):
 	updateNeighborsOf(r, c)
 
 func getNeighborsOf(r, c):
-	var ret = [1,1,1,1,1,1,1,1]
+	var ret = [-1,-1,-1,-1,-1,-1,-1,-1]
 	if r-1 >= 0 :
 		if c-1 >= 0:
 			ret[0] = wallMap[r-1][c-1]

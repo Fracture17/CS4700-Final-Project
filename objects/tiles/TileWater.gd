@@ -15,7 +15,7 @@ func _ready():
 func updateSprite():
 	var neighbors = get_parent().getNeighborsOf(self.r, self.c)
 	for i in range(neighbors.size()):
-		if neighbors[i] != tileID:
+		if neighbors[i] != tileID and neighbors[i] != -1:
 			neighbors[i] = 0
 		else:
 			neighbors[i] = 1

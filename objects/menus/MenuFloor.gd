@@ -10,7 +10,7 @@ func setParent(r, c, t):
 	self.t = t
 
 func _on_BuildTower_pressed():
-	get_parent().replace(r, c, 4)
+	get_parent().replace(r, c, 5)
 	get_parent().activeMenu = null
 	queue_free()
 	

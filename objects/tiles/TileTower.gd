@@ -7,3 +7,6 @@ func _init(H, W, r, c).(H, W, r, c):
 	struct = BasicTower.new(self.global_position)
 	add_child(struct)
 	struct.global_position = self.global_position
+	
+func updateSprite():
+	pass

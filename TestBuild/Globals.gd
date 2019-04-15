@@ -54,7 +54,7 @@ func getAllNodesInGroups(groups: Array) -> Array:
 	var result = []
 	for group in groups:
 		result += get_tree().get_nodes_in_group(group)
-	print(result)
+	#print(result)
 	return result
 	
 static func filterNodesInGroups(nodes: Array, groups: Array) -> Array:

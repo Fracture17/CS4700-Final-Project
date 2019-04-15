@@ -22,12 +22,12 @@ _global_script_classes=[ {
 "base": "DetectionField",
 "class": "AreaHitBox",
 "language": "GDScript",
-"path": "res://AreaHitBox.gd"
+"path": "res://TestBuild/AreaHitBox.gd"
 }, {
 "base": "Node2D",
 "class": "Attack",
 "language": "GDScript",
-"path": "res://Attack.gd"
+"path": "res://TestBuild/Attack.gd"
 }, {
 "base": "Enemy",
 "class": "BasicEnemy",
@@ -47,7 +47,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "DirectHitBox",
 "language": "GDScript",
-"path": "res://DirectHitBox.gd"
+"path": "res://TestBuild/DirectHitBox.gd"
 }, {
 "base": "MovingActor",
 "class": "Enemy",
@@ -57,7 +57,7 @@ _global_script_classes=[ {
 "base": "DetectionField",
 "class": "HitBox",
 "language": "GDScript",
-"path": "res://HitBox.gd"
+"path": "res://TestBuild/HitBox.gd"
 }, {
 "base": "Actor",
 "class": "MovingActor",
@@ -72,12 +72,12 @@ _global_script_classes=[ {
 "base": "DetectionField",
 "class": "RangedHitBox",
 "language": "GDScript",
-"path": "res://RangedHitBox.gd"
+"path": "res://TestBuild/RangedHitBox.gd"
 }, {
 "base": "Node2D",
 "class": "Spawner",
 "language": "GDScript",
-"path": "res://Spawner.gd"
+"path": "res://TestBuild/Spawner.gd"
 }, {
 "base": "Area2D",
 "class": "Tile",
@@ -193,6 +193,12 @@ Game="*res://TestBuild/Game.gd"
 [debug]
 
 settings/fps/force_fps=60
+
+[display]
+
+window/size/width=1600
+window/size/height=900
+window/size/resizable=false
 
 [rendering]
 
