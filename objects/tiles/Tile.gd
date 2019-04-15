@@ -16,6 +16,7 @@ var sprite
 var collision
 var text
 var hover
+var MENU
 
 func _init(H, W, r, c):
 	collision = Globals.newRectangleCollision(H-2, W-2)
@@ -30,12 +31,6 @@ func _init(H, W, r, c):
 func _ready():
 	add_to_group('tiles')
 	pass
-	
-func _input_event( viewport, event, shapeidx ):
-	if isBase:
-		return
-	if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
-		click()
 		
 func _mouse_enter():
 	hover()
@@ -53,7 +48,6 @@ func toggleType():
 		get_parent().wallMap[r][c] = 0
 	
 	get_parent().replace(r, c, type)
-	get_parent().updateNeighborsOf(r,c)
 	
 func updateSprite():
 	pass
@@ -65,7 +59,7 @@ func hover():
 	text.set_text("Row: " + str(r) + "\nCol: " + str(c))
 	text.rect_position = Vector2(800, 20)
 	"""
-	sprite.modulate = Color(1.2, 1.2, 1.2, 1)
+	sprite.modulate = Color(1.3, 1.3, 1.3, 1)
 	hover = true
 	
 func unhover():
@@ -76,18 +70,31 @@ func unhover():
 	hover = false
 	
 func click():
-	pass
-	# toggleType()
+	openMenu()
 	
 func isPathable():
 	return pathable
 	
+# We put controls here to give env lower priority than UI
 func _unhandled_input(event):
-	if event is InputEventKey and hover:
-		if event.pressed and event.scancode == KEY_1:
-			get_parent().replace(r,c,0)
-		elif event.pressed and event.scancode == KEY_2:
-			get_parent().replace(r,c,1)
-		elif event.pressed and event.scancode == KEY_3:
-			get_parent().replace(r,c,2)
-		get_parent().updateNeighborsOf(r,c)
+	if hover:
+		if event is InputEventKey:
+			if event.pressed and event.scancode == KEY_1:
+				get_parent().replace(r,c,0)
+			elif event.pressed and event.scancode == KEY_2:
+				get_parent().replace(r,c,1)
+			elif event.pressed and event.scancode == KEY_3:
+				get_parent().replace(r,c,2)
+			
+		if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
+			click()
+			
+func openMenu():
+	if get_parent().activeMenu != null:
+		get_parent().activeMenu.queue_free()
+		
+	var menuInst = MENU.instance()
+	menuInst.setParent(r, c, tileID)
+	menuInst.rect_position = self.global_position
+	get_parent().add_child(menuInst)
+	get_parent().activeMenu = menuInst

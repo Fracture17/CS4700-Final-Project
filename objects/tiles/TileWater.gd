@@ -20,7 +20,7 @@ func updateSprite():
 		else:
 			neighbors[i] = 1
 			
-	print(neighbors)
+	#print(neighbors)
 	
 	var num_adjacent = neighbors[1] + neighbors[3] + neighbors[4] + neighbors[6]
 	var num_diagonal = neighbors[0] + neighbors[2] + neighbors[5] + neighbors[7]
@@ -54,5 +54,8 @@ func updateSprite():
 			sprid = 31 + (1 * neighbors[2] * neighbors[5] * neighbors[7]) + (2 * neighbors[0] * neighbors[5] * neighbors[7]) + (3 * neighbors[0] * neighbors[2] * neighbors[7]) + (4 * neighbors[0] * neighbors[2] * neighbors[5])
 		else:
 			sprid = 31
-	print(sprid)
+	#print(sprid)
 	sprite.set_texture(image.TILESET_TEST_WATER[sprid])
+	
+func click():
+	pass

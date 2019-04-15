@@ -5,6 +5,7 @@ class_name TileFloor extends TilePathable
 # var b = "text"
 
 func _init(H, W, r, c).(H, W, r, c):
+	MENU = preload("res://objects/menus/MenuFloor.tscn")
 	sprite = Globals.newSprite(H, W, "res://assets/images/TILESET_TEST/0-1-0.png")
 	add_child(sprite)
 

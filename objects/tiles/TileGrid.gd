@@ -23,6 +23,8 @@ var wallMap = [[2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 var ROWS = wallMap.size()
 var COLS = wallMap[0].size()
 
+var activeMenu
+
 func _ready():
 
 	for r in range(ROWS):
@@ -116,6 +118,7 @@ func replace(r, c, t):
 	add_child(tiles[r][c])
 	wallMap[r][c] = t
 	tiles[r][c].updateSprite()
+	updateNeighborsOf(r, c)
 
 func getNeighborsOf(r, c):
 	var ret = [1,1,1,1,1,1,1,1]

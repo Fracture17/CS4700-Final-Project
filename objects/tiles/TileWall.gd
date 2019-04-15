@@ -1,6 +1,7 @@
 class_name TileWall extends TileUnpathable
 
 func _init(H, W, r, c).(H, W, r, c):
+	MENU = preload("res://objects/menus/MenuWall.tscn")
 	sprite = Globals.newSprite(H, W, "res://assets/images/TILESET_TEST/0-0-0.png")
 	add_child(sprite)
 	
@@ -55,3 +56,4 @@ func updateSprite():
 			
 	#print(sprid)
 	sprite.set_texture(image.TILESET_TEST_WALL[sprid])
+	
