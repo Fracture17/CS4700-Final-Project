@@ -11,6 +11,7 @@ var health: float
 var stats
 var statuses: Array = []
 var isAttacking: bool = false
+var isSelected = false
 
 func replaceSprite(spritePath):
 	var collision = get_node('collision')

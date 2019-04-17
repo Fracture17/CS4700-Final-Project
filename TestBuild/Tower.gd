@@ -6,4 +6,4 @@ func _init(height, width, spritePath = '').(height, width, spritePath):
 	pass
 
 func _ready():
-	pass
+	add_to_group('tower')

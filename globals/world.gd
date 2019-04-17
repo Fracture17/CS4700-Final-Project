@@ -6,6 +6,7 @@ var tileGrid
 var A = AStar.new()
 
 func _init():
+	return
 	tileGrid = TileGrid.new()
 	add_child(tileGrid)
 

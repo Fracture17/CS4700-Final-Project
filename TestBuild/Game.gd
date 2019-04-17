@@ -1,11 +1,27 @@
 extends Node2D
 
-var playerGold = 0
+var playerGold = 100
 var tileGrid
 
 var A = AStar.new()
+var F1 = MouseDetection.new(2)
+var F2 = MouseDetection.new(30)
+
+func addSquareAStar(i, x, y):
+	#var S = Globals.newSprite(5, 5, 'res://TestBuild/TileSprites/0-0-20.png')
+	#S.position = Vector2(x, y)
+	#add_child(S)
+	A.add_point(i, Vector3(x, y, 0))
+	#A.connect_points(i, i + 23)
+	A.connect_points(i, i - 23)
+	#A.connect_points(i, i + 1)
+	#if i % 13 != 0:
+	A.connect_points(i, i - 1)
 
 func _init():
+	add_child(F1)
+	add_child(F2)
+	return
 	tileGrid = TileGrid.new()
 	add_child(tileGrid)
 

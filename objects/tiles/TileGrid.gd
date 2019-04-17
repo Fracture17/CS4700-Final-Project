@@ -3,8 +3,8 @@ extends Node2D
 
 var tileSprites = ['res://TestBuild/TileSprites/0-1-0.png', 'res://TestBuild/TileSprites/0-0-35.png']
 var baseIndex
-var H = 50
-var W = 50
+var H = 20
+var W = 20
 var walls
 var tiles = []
 var wallMap = [

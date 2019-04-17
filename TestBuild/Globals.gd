@@ -53,8 +53,10 @@ static func newLight(radius, texture = 'res://TestBuild/rangeLight.png'):
 func getAllNodesInGroups(groups: Array) -> Array:
 	var result = []
 	for group in groups:
-		result += get_tree().get_nodes_in_group(group)
-	#print(result)
+		var nodes = get_tree().get_nodes_in_group(group)
+		for node in nodes:
+			if result.find(node) == -1:
+				result.append(node)
 	return result
 	
 static func filterNodesInGroups(nodes: Array, groups: Array) -> Array:

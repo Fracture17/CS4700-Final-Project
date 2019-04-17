@@ -3,6 +3,7 @@ extends Actor
 class_name MovingActor
 
 var walkSpeed
+var dest
 
 func _init(height, width, spritePath = '').(height, width, spritePath):
 	pass

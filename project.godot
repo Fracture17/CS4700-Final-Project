@@ -39,6 +39,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://TestBuild/BasicTower.gd"
 }, {
+"base": "DetectionField",
+"class": "ClickSpawnField",
+"language": "GDScript",
+"path": "res://ClickSpawnField.gd"
+}, {
+"base": "Actor",
+"class": "Construction",
+"language": "GDScript",
+"path": "res://Construction.gd"
+}, {
 "base": "Area2D",
 "class": "DetectionField",
 "language": "GDScript",
@@ -54,10 +64,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://TestBuild/Enemy.gd"
 }, {
+"base": "MovingActor",
+"class": "Fighter",
+"language": "GDScript",
+"path": "res://Fighter.gd"
+}, {
 "base": "DetectionField",
 "class": "HitBox",
 "language": "GDScript",
 "path": "res://TestBuild/HitBox.gd"
+}, {
+"base": "DetectionField",
+"class": "MouseDetection",
+"language": "GDScript",
+"path": "res://MouseDetection.gd"
 }, {
 "base": "Actor",
 "class": "MovingActor",
@@ -74,7 +94,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://TestBuild/RangedHitBox.gd"
 }, {
-"base": "Node2D",
+"base": "Actor",
 "class": "Spawner",
 "language": "GDScript",
 "path": "res://TestBuild/Spawner.gd"
@@ -139,6 +159,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://TestBuild/Tower.gd"
 }, {
+"base": "MovingActor",
+"class": "Worker",
+"language": "GDScript",
+"path": "res://Worker.gd"
+}, {
 "base": "Node",
 "class": "abstract",
 "language": "GDScript",
@@ -151,10 +176,14 @@ _global_script_class_icons={
 "Attack": "",
 "BasicEnemy": "",
 "BasicTower": "",
+"ClickSpawnField": "",
+"Construction": "",
 "DetectionField": "",
 "DirectHitBox": "",
 "Enemy": "",
+"Fighter": "",
 "HitBox": "",
+"MouseDetection": "",
 "MovingActor": "",
 "PlayerBase": "",
 "RangedHitBox": "",
@@ -171,13 +200,14 @@ _global_script_class_icons={
 "TileWall": "",
 "TileWater": "",
 "Tower": "",
+"Worker": "",
 "abstract": ""
 }
 
 [application]
 
 config/name="CS4700 Final Project"
-run/main_scene="res://scenes/TestWorld.tscn"
+run/main_scene="res://LevelTest.tscn"
 config/icon="res://TestBuild/icon.png"
 
 [autoload]
@@ -196,8 +226,6 @@ settings/fps/force_fps=60
 
 [display]
 
-window/size/width=1600
-window/size/height=900
 window/size/resizable=false
 
 [rendering]

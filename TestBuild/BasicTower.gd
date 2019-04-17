@@ -11,7 +11,7 @@ const HIEGHT = 30
 const WIDTH = 30
 const SPRITE = 'res://TestBuild/icon.png'
 
-var testHitbox = RangedHitBox.new(5, 2, 0, 10, false, true, 0, 200, ['enemy'])
+var testHitbox = RangedHitBox.new(10, 2, 0, 15, false, true, 0, 200, ['enemy'])
 
 var attackRange
 var attack
@@ -34,6 +34,8 @@ func _process(delta: float):
 	#This currently assumes that enemies ignore players unless players aggro them
 	if targetActor == null:
 		targetActor = Game.closestNodeFromGroups(self, ['enemy'])
+	
+	targetActor = Game.closestNodeFromGroups(self, ['enemy'])
 	
 	if targetActor:
 		if attackRange.nodeInRange(targetActor):

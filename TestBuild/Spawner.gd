@@ -1,18 +1,20 @@
-extends Node2D
+extends Actor
 
 class_name Spawner
 
 var rate
 var time
 
-func _init():
-	rate = 2 # once per two seconds
+func _init(rate = 2).(40, 40, "res://TestBuild/icon.png"):
+	self.rate = rate # once per two seconds
 	time = rate
-	var sprite = Globals.newSprite(40, 40, "res://TestBuild/icon.png")
+	var sprite = get_node('sprite')
 	sprite.modulate = Color(2, 0, 0)
 	add_child(sprite)
+	health = 20
 	
 func _ready():
+	add_to_group('spawner')
 	pass
 	
 func _process(delta):
