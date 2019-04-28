@@ -1,0 +1,34 @@
+[gd_scene format=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="RightButton" type="Button" parent="."]
+margin_left = 1462.91
+margin_top = 391.908
+margin_right = 1506.91
+margin_bottom = 411.908
+text = "Right"
+
+[node name="LeftButton" type="Button" parent="."]
+margin_left = 66.6403
+margin_top = 401.428
+margin_right = 106.64
+margin_bottom = 421.428
+text = "LEFT"
+
+[node name="UpgradesButton" type="Button" parent="."]
+margin_left = 666.403
+margin_top = 812.377
+margin_right = 738.403
+margin_bottom = 832.377
+text = "Upgrades"
+
+[node name="EquipsButton" type="Button" parent="."]
+margin_left = 268.148
+margin_top = 817.137
+margin_right = 313.148
+margin_bottom = 837.137
+text = "Equips"
+

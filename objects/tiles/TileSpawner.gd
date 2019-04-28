@@ -6,3 +6,7 @@ func _init(H, W, r, c).(H, W, r, c):
 	struct = Spawner.new()
 	add_child(struct)
 	struct.global_position = self.global_position
+	
+	
+func click():
+	pass

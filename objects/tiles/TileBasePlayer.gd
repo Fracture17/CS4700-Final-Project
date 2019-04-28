@@ -6,3 +6,6 @@ func _init(H, W, r, c).(H, W, r, c):
 	struct = PlayerBase.new()
 	add_child(struct)
 	struct.global_position = self.global_position
+	
+func click():
+	pass

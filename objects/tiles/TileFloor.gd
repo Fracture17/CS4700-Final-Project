@@ -48,3 +48,4 @@ func updateSprite():
 			
 	#print(sprid)
 	sprite.set_texture(image.TILESET_TEST_FLOOR[sprid])
+	

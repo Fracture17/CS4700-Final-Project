@@ -24,7 +24,7 @@ func _init():
 	return
 	tileGrid = TileGrid.new()
 	add_child(tileGrid)
-
+	
 func closestNodeFromGroups(node, targetGroups):
 	var targets = Globals.getAllNodesInGroups(targetGroups)
 	var x = getClosestTarget(node, targets)

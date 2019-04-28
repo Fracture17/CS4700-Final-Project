@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "Actor",
 "language": "GDScript",
-"path": "res://TestBuild/Actor.gd"
+"path": "res://objects/Actor.gd"
 }, {
 "base": "DetectionField",
 "class": "AreaHitBox",
@@ -42,12 +42,12 @@ _global_script_classes=[ {
 "base": "DetectionField",
 "class": "ClickSpawnField",
 "language": "GDScript",
-"path": "res://ClickSpawnField.gd"
+"path": "res://TestBuild/ClickSpawnField.gd"
 }, {
 "base": "Actor",
 "class": "Construction",
 "language": "GDScript",
-"path": "res://Construction.gd"
+"path": "res://TestBuild/Construction.gd"
 }, {
 "base": "Area2D",
 "class": "DetectionField",
@@ -67,7 +67,7 @@ _global_script_classes=[ {
 "base": "MovingActor",
 "class": "Fighter",
 "language": "GDScript",
-"path": "res://Fighter.gd"
+"path": "res://TestBuild/Fighter.gd"
 }, {
 "base": "DetectionField",
 "class": "HitBox",
@@ -77,7 +77,7 @@ _global_script_classes=[ {
 "base": "DetectionField",
 "class": "MouseDetection",
 "language": "GDScript",
-"path": "res://MouseDetection.gd"
+"path": "res://TestBuild/MouseDetection.gd"
 }, {
 "base": "Actor",
 "class": "MovingActor",
@@ -162,7 +162,7 @@ _global_script_classes=[ {
 "base": "MovingActor",
 "class": "Worker",
 "language": "GDScript",
-"path": "res://Worker.gd"
+"path": "res://TestBuild/Worker.gd"
 }, {
 "base": "Node",
 "class": "abstract",
@@ -207,7 +207,7 @@ _global_script_class_icons={
 [application]
 
 config/name="CS4700 Final Project"
-run/main_scene="res://LevelTest.tscn"
+run/main_scene="res://scenes/SplashScreen.tscn"
 config/icon="res://TestBuild/icon.png"
 
 [autoload]
@@ -226,6 +226,8 @@ settings/fps/force_fps=60
 
 [display]
 
+window/size/width=1600
+window/size/height=900
 window/size/resizable=false
 
 [rendering]

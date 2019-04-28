@@ -35,12 +35,12 @@ func updateSprite():
 		var TR = neighbors[1] * neighbors[4]
 		var BL = neighbors[6] * neighbors[3]
 		var BR = neighbors[6] * neighbors[4]
-		sprid = 4 + (1 * neighbors[1] * neighbors[6]) + (2 * neighbors[3] * neighbors[4]) + (3 * BR + (4 * BR * neighbors[7])) + (4 * BL + (4 * BL * neighbors[5])) + (5 * TR + (4 * TR * neighbors[2])) + (6 * TL + (4 * TL * neighbors[0]));
+		sprid = 4 + (1 * neighbors[1] * neighbors[6]) + (2 * neighbors[3] * neighbors[4]) + (3 * BR + (4 * BR * neighbors[7])) + (4 * BL + (4 * BL * neighbors[5])) + (5 * TR + (4 * TR * neighbors[2])) + (6 * TL + (4 * TL * neighbors[0]))
 	elif num_adjacent == 3:
-		var U = neighbors[3] * neighbors[4] * neighbors[6];
-		var D = neighbors[1] * neighbors[3] * neighbors[4];
-		var L = neighbors[1] * neighbors[4] * neighbors[6];
-		var R = neighbors[1] * neighbors[3] * neighbors[6];
+		var U = neighbors[3] * neighbors[4] * neighbors[6]
+		var D = neighbors[1] * neighbors[3] * neighbors[4]
+		var L = neighbors[1] * neighbors[4] * neighbors[6]
+		var R = neighbors[1] * neighbors[3] * neighbors[6]
 		sprid = 14 + (5  * U - (U * neighbors[5]) - (2 * U * neighbors[7]) - (1 * U * neighbors[5] * neighbors[7])) + (10 * D - (D * neighbors[0]) - (2 * D * neighbors[2]) - (1 * D * neighbors[2] * neighbors[0])) + (15 * L - (L * neighbors[2]) - (2 * L * neighbors[7]) - (1 * L * neighbors[7] * neighbors[2])) + (20 * R - (R * neighbors[0]) - (2 * R * neighbors[5]) - (1 * R * neighbors[5] * neighbors[0]))
 	elif num_adjacent == 4:
 		if num_diagonal == 0:
