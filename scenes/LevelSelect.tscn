@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/LevelSelect.gd" type="Script" id=1]
-[ext_resource path="res://assets/images/buttons/button_equipment_hover_enabled.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/buttons/button_equipment_normal_enabled.png" type="Texture" id=2]
 [ext_resource path="res://assets/images/buttons/button_equipment_pressed_enabled.png" type="Texture" id=3]
-[ext_resource path="res://assets/images/buttons/button_equipment_normal_disabled.png" type="Texture" id=4]
-[ext_resource path="res://assets/images/buttons/button_upgrades_normal_enabled.png" type="Texture" id=5]
-[ext_resource path="res://assets/images/buttons/button_upgrades_pressed_enabled.png" type="Texture" id=6]
-[ext_resource path="res://assets/images/buttons/button_upgrades_hover_enabled.png" type="Texture" id=7]
-[ext_resource path="res://assets/images/buttons/button_upgrades_normal_disabled.png" type="Texture" id=8]
-[ext_resource path="res://assets/images/levelselect/worldmap.png" type="Texture" id=9]
+[ext_resource path="res://assets/images/buttons/button_equipment_hover_enabled.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/buttons/button_equipment_normal_disabled.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/buttons/button_upgrades_normal_enabled.png" type="Texture" id=6]
+[ext_resource path="res://assets/images/buttons/button_upgrades_pressed_enabled.png" type="Texture" id=7]
+[ext_resource path="res://assets/images/buttons/button_upgrades_hover_enabled.png" type="Texture" id=8]
+[ext_resource path="res://assets/images/buttons/button_upgrades_normal_disabled.png" type="Texture" id=9]
+[ext_resource path="res://assets/images/levelselect/worldmap.png" type="Texture" id=10]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -20,21 +21,21 @@ margin_right = 240.0
 margin_bottom = 850.0
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 3 )
-texture_hover = ExtResource( 2 )
-texture_disabled = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
 
 [node name="UpgradeButton" type="TextureButton" parent="."]
 margin_left = 290.0
 margin_top = 801.0
 margin_right = 480.0
 margin_bottom = 850.0
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 6 )
-texture_hover = ExtResource( 7 )
-texture_disabled = ExtResource( 8 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 8 )
+texture_disabled = ExtResource( 9 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 800, 450 )
 z_index = -100
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 

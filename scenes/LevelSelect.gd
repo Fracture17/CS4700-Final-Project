@@ -3,8 +3,12 @@ extends Node2D
 var UpgradesButton
 var EquipmentButton
 
-var missionLocX = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200]
-var missionLocY = [100, 200, 100, 400, 200, 600, 200, 100, 300, 200, 200, 100]
+var missionLocX = [200, 400, 700, 900, 1200, 600, 180, 500, 720, 900, 1140, 1280]
+var missionLocY = [200, 260, 260, 300, 100, 430, 655, 700, 770, 755, 730, 610]
+
+var flags = []
+
+var DialogueBox = preload("res://objects/dialogue/Dialogue.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,12 +25,41 @@ func _ready():
 	
 	for i in range(global.missionUnlocked.size()):
 		if global.missionUnlocked[i] == 1:
-			print(i)
 			var flag = Flag.new(i)
 			flag.global_position = Vector2(missionLocX[i], missionLocY[i])
 			get_parent().add_child(flag)
+			flags.append(flag)
 		else:
 			break
+
+	if global.dialogues[0] == 0:
+		var d = DialogueBox.instance()
+		d.dialogue = Dialogues.TutorialText
+		add_child(d)
+
+func _unhandled_input(event):
+	if event is InputEventKey:
+		if event.pressed:
+			if event.scancode == KEY_R:
+				print("Adding mission")
+				for i in range(global.missionUnlocked.size()):
+					if global.missionUnlocked[i] == 0:
+						global.missionUnlocked[i] = 1
+						var flag = Flag.new(i)
+						flag.global_position = Vector2(missionLocX[i], missionLocY[i])
+						get_parent().add_child(flag)
+						flags.append(flag)
+						print(global.missionUnlocked)
+						break
+			if event.scancode == KEY_E:
+				print("Removing mission")
+				for i in range(global.missionUnlocked.size()):
+					if global.missionUnlocked[global.missionUnlocked.size()-1-i] == 1:
+						global.missionUnlocked[global.missionUnlocked.size()-1-i] = 0
+						print(global.missionUnlocked)
+						flags[flags.size()-1].queue_free()
+						flags.remove(flags.size()-1)
+						break
 
 class Flag extends Area2D:
 	
@@ -71,9 +104,12 @@ class Flag extends Area2D:
 		sprite.modulate = Color(1, 1, 1, 1)
 		hovering = false
 		
-	func _on_Area2D_input_event( viewport, event, shape_idx ):
-	    if (event.type == InputEvent.MOUSE_BUTTON && event.pressed):
-	        print("Clicked")
+	
+	func _unhandled_input(event):
+		if event is InputEventKey:
+			if event.pressed and event.scancode == KEY_P:
+				print("Level: " + str(level))
+				get_tree().change_scene(global.stages[level])
 			
 class FlagHoverObject extends Sprite:
 	

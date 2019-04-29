@@ -4,6 +4,12 @@ var TILESET_TEST_WALL
 var TILESET_TEST_FLOOR
 var TILESET_TEST_WATER
 
+var DIALOGUE_VIGNETTE
+var DIALOGUE_BACKGROUND_WIDE
+
+var PORTRAIT_TEST_1
+var PORTRAIT_TEST_2
+
 func _ready():
 	TILESET_TEST_WALL = [preload("res://assets/images/TILESET_TEST/0-0-0.png"),
 						preload("res://assets/images/TILESET_TEST/0-0-1.png"),
@@ -123,3 +129,9 @@ func _ready():
 				preload("res://assets/images/TILESET_TEST/0-2-44.png"),
 				preload("res://assets/images/TILESET_TEST/0-2-45.png"),
 				preload("res://assets/images/TILESET_TEST/0-2-46.png")]
+				
+	DIALOGUE_VIGNETTE = preload("res://assets/images/dialogue/vignette.png")
+	DIALOGUE_BACKGROUND_WIDE = preload("res://assets/images/dialogue/widebg.png")
+	
+	PORTRAIT_TEST_1 = preload("res://assets/images/portraits/defaultprofile1.png")
+	PORTRAIT_TEST_2 = preload("res://assets/images/portraits/defaultprofile2.png")

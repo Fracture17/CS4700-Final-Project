@@ -13,6 +13,10 @@ var unitLevels
 var volumeLevel
 var starts
 
+var dialogues
+
+var stages = ["res://scenes/TestWorld.tscn"]
+
 func _ready():
 	loadSaveData()
 	print(starts)
@@ -40,9 +44,10 @@ func newGame():
 	
 	volumeLevel = 10
 	starts = 0
+	
+	dialogues = [0]
 
 func loadSaveData(filepath = "user://savegame.save"):
-	
 	var save_game = File.new()
 	if not save_game.file_exists("user://savegame.save"):
 		print("making new game")
@@ -64,6 +69,8 @@ func loadSaveData(filepath = "user://savegame.save"):
 		volumeLevel = save_data["volumeLevel"]
 		starts = save_data["starts"]
 		
+		dialogues = save_data["dialogues"]
+		
 		save_game.close()
 	
 """ 	writeSaveData takes the values stored in memory and writes it
@@ -82,7 +89,9 @@ func writeSaveData(filepath = "default"):
 			"unitLevels": unitLevels,
 				
 			"volumeLevel": volumeLevel,
-			"starts": starts
+			"starts": starts,
+			
+			"dialogues": dialogues
 		}
 		
 	var save_game = File.new()

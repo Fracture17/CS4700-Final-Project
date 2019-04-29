@@ -54,6 +54,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://TestBuild/DetectionField.gd"
 }, {
+"base": "Control",
+"class": "Dialogue",
+"language": "GDScript",
+"path": "res://objects/dialogue/Dialogue.gd"
+}, {
+"base": "Node",
+"class": "DialogueText",
+"language": "GDScript",
+"path": "res://objects/dialogue/DialogueText.gd"
+}, {
+"base": "Node",
+"class": "Dialogues",
+"language": "GDScript",
+"path": "res://objects/dialogue/Dialogues.gd"
+}, {
 "base": "Node2D",
 "class": "DirectHitBox",
 "language": "GDScript",
@@ -179,6 +194,9 @@ _global_script_class_icons={
 "ClickSpawnField": "",
 "Construction": "",
 "DetectionField": "",
+"Dialogue": "",
+"DialogueText": "",
+"Dialogues": "",
 "DirectHitBox": "",
 "Enemy": "",
 "Fighter": "",
@@ -219,6 +237,7 @@ audio="*res://globals/audio.gd"
 enemy="*res://globals/enemy.gd"
 abstract="*res://globals/abstract.gd"
 Game="*res://TestBuild/Game.gd"
+Dialogues="*res://objects/dialogue/Dialogues.gd"
 
 [debug]
 
@@ -228,6 +247,7 @@ settings/fps/force_fps=60
 
 window/size/width=1600
 window/size/height=900
+window/size/resizable=false
 
 [rendering]
 
