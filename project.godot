@@ -228,7 +228,6 @@ settings/fps/force_fps=60
 
 window/size/width=1600
 window/size/height=900
-window/size/resizable=false
 
 [rendering]
 

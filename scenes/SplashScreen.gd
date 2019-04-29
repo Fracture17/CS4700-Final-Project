@@ -43,9 +43,9 @@ func _process(delta):
 		transition_to_menu()
 
 func _unhandled_input(event):
-	if anim_time < 0:
+	if anim_time < 10:
 		if event.pressed:
 			transition_to_menu()
 			
 func transition_to_menu():
-	get_tree().change_scene("res://scenes/TestWorld.tscn")
+	get_tree().change_scene("res://scenes/LevelSelect.tscn")
