@@ -3,8 +3,8 @@ extends Node2D
 var UpgradesButton
 var EquipmentButton
 
-var missionLocX = [200, 400, 700, 900, 1200, 600, 180, 500, 720, 900, 1140, 1280]
-var missionLocY = [200, 260, 260, 300, 100, 430, 655, 700, 770, 755, 730, 610]
+var missionLocX = [200, 400, 700, 900, 1200, 600, 180, 500, 720, 900, 1160, 1290]
+var missionLocY = [168, 218, 225, 330, 68, 398, 623, 668, 738, 723, 680, 520]
 
 var flags = []
 
@@ -32,7 +32,7 @@ func _ready():
 		else:
 			break
 
-	if global.dialogues[0] == 0:
+	if global.dialogues[0] == 1:
 		var d = DialogueBox.instance()
 		d.dialogue = Dialogues.TutorialText
 		add_child(d)
@@ -68,15 +68,21 @@ class Flag extends Area2D:
 	var collision
 	var text
 	var hovering
+	var timer
 	
 	func _init(level):
 		self.level = level
 		self.input_pickable = true
 		
-		sprite = Globals.newSprite(50, 50, "res://TestBuild/icon.png")
+		timer = 1/12
+		sprite = Sprite.new()
+		sprite.texture = image.FLAG
+		sprite.vframes = 1
+		sprite.hframes = 4
+		sprite.frame = randi()%4
 		add_child(sprite)
 	
-		collision = Globals.newRectangleCollision(50, 50)
+		collision = Globals.newRectangleCollision(96, 96)
 		add_child(collision)
 	
 	func _ready():
@@ -87,6 +93,12 @@ class Flag extends Area2D:
 		
 	func _mouse_exit():
 		unhover()
+
+	func _process(delta):
+		timer -= delta
+		if timer < 0:
+			timer = .125
+			sprite.frame = (sprite.frame + 1) % 4
 
 	func hover():
 		

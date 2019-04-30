@@ -10,6 +10,11 @@ var DIALOGUE_BACKGROUND_WIDE
 var PORTRAIT_TEST_1
 var PORTRAIT_TEST_2
 
+var STAR_GOLD
+var STAR_GREY
+
+var FLAG
+
 func _ready():
 	TILESET_TEST_WALL = [preload("res://assets/images/TILESET_TEST/0-0-0.png"),
 						preload("res://assets/images/TILESET_TEST/0-0-1.png"),
@@ -135,3 +140,8 @@ func _ready():
 	
 	PORTRAIT_TEST_1 = preload("res://assets/images/portraits/defaultprofile1.png")
 	PORTRAIT_TEST_2 = preload("res://assets/images/portraits/defaultprofile2.png")
+	
+	STAR_GOLD = preload("res://assets/images/levelselect/goldstar.png")
+	STAR_GREY = preload("res://assets/images/levelselect/greystar.png")
+	
+	FLAG = preload("res://assets/images/levelselect/flaganim.png")
